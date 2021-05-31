@@ -10,7 +10,7 @@ const Scan = () => {
     const [types, setTypes] = React.useState(["A", "B", "C", "D", "E", "F", "G", "H"]);
     const [selectedType, setSelectedTypes] = React.useState(types[0]);
     const [statuses, setStatuses] = React.useState(["1", "2", "3", "4", "5", "6", "7", "8"]);
-    const [selectedStatus, setSelectedStatus] = React.useState(types[0]);
+    const [selectedStatus, setSelectedStatus] = React.useState(statuses[0]);
 
     return (
         <ScrollView>

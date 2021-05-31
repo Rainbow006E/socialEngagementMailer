@@ -21,7 +21,19 @@ class AppNavigator extends Component {
                 // tabBar={props => <MyTabBar {...props} />}
                 initialRouteName="Scan"
                 activeColor="#e91e63"
-                barStyle={{ backgroundColor: 'tomato' }}
+                tabBarOptions={{
+                  showLabel: true,
+                  style: {
+                    position: 'absolute',
+                    bottom: 15,
+                    left: 15,
+                    right: 15,
+                    elevation: 0,
+                    backgroundColor: '#ffffff',
+                    borderRadius: 15,
+                    height: 90
+                  }
+                }}
             >
                 <Tab.Screen
                     name="Scan"
@@ -29,8 +41,11 @@ class AppNavigator extends Component {
                     options={{
                         tabBarLabel: 'Scan',
                         tabBarIcon: ({ color }) => (
-                            <MaterialCommunityIcons name="search" size={26} />
+                            <MaterialCommunityIcons name="home" size={26} />
                         ),
+                        tabBarOptions: {
+                          showLabel: false
+                        }
                     }}
                 />
                 <Tab.Screen
@@ -39,7 +54,7 @@ class AppNavigator extends Component {
                     options={{
                         tabBarLabel: 'Bins',
                         tabBarIcon: ({ color }) => (
-                            <MaterialCommunityIcons name="search" size={26} />
+                            <MaterialCommunityIcons name="home" size={26} />
                         ),
                     }}
                 />
@@ -49,7 +64,7 @@ class AppNavigator extends Component {
                     options={{
                         tabBarLabel: 'Passport',
                         tabBarIcon: ({ color }) => (
-                            <MaterialCommunityIcons name="search" size={26} />
+                            <MaterialCommunityIcons name="home" size={26} />
                         ),
                     }}
                 />

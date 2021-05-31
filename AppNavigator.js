@@ -22,16 +22,16 @@ class AppNavigator extends Component {
                 initialRouteName="Scan"
                 activeColor="#e91e63"
                 tabBarOptions={{
-                  showLabel: true,
+                  showLabel: false,
                   style: {
                     position: 'absolute',
-                    bottom: 15,
-                    left: 15,
-                    right: 15,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
                     elevation: 0,
-                    backgroundColor: '#ffffff',
-                    borderRadius: 15,
-                    height: 90
+                    backgroundColor: '#a7a7dc',
+                    borderRadius: 0,
+                    height: 60
                   }
                 }}
             >
@@ -41,7 +41,7 @@ class AppNavigator extends Component {
                     options={{
                         tabBarLabel: 'Scan',
                         tabBarIcon: ({ color }) => (
-                            <MaterialCommunityIcons name="home" size={26} />
+                            <MaterialCommunityIcons name="qrcode-scan" size={24} color="#000" />
                         ),
                         tabBarOptions: {
                           showLabel: false
@@ -54,7 +54,7 @@ class AppNavigator extends Component {
                     options={{
                         tabBarLabel: 'Bins',
                         tabBarIcon: ({ color }) => (
-                            <MaterialCommunityIcons name="home" size={26} />
+                            <MaterialCommunityIcons name="archive" size={26} />
                         ),
                     }}
                 />
@@ -64,7 +64,7 @@ class AppNavigator extends Component {
                     options={{
                         tabBarLabel: 'Passport',
                         tabBarIcon: ({ color }) => (
-                            <MaterialCommunityIcons name="home" size={26} />
+                            <MaterialCommunityIcons name="passport" size={26} />
                         ),
                     }}
                 />

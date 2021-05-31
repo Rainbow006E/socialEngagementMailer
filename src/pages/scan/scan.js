@@ -1,16 +1,23 @@
 import React, { Component, useState } from "react";
 import { Text, TextInput, View, ScrollView } from 'react-native';
 import { Button } from "native-base";
-
-import styles from "./styles";
+import QRCode from 'react-native-qrcode-svg';
 
 import SelectTextButton from '../components/selectTextButton';
+import styles from "./styles";
 
 const Scan = () => {
     const [types, setTypes] = React.useState(["A", "B", "C", "D", "E", "F", "G", "H"]);
     const [selectedType, setSelectedTypes] = React.useState(types[0]);
     const [statuses, setStatuses] = React.useState(["1", "2", "3", "4", "5", "6", "7", "8"]);
     const [selectedStatus, setSelectedStatus] = React.useState(statuses[0]);
+    const [qrValue, setQrValue] = React.useState("http://awesome.link.qr");
+
+    const changeQrValue = (value) => {
+        if (value) {
+            setQrValue(value);
+        }
+    };
 
     return (
         <ScrollView>
@@ -72,6 +79,12 @@ const Scan = () => {
                     <Button style={styles.printBRButton}>
                         <Text style={styles.printBRText}>ID 123456789</Text>
                     </Button>
+                </View>
+                <View style={styles.formContainer}>
+                    <TextInput style={styles.label} value={qrValue} onChangeText={(value) => changeQrValue(value)}></TextInput>
+                    <QRCode
+                        value={qrValue}
+                    />
                 </View>
             </View>
         </ScrollView>

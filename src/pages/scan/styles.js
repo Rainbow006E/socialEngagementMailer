@@ -5,7 +5,8 @@ export default StyleSheet.create({
     paddingTop: 40,
     paddingLeft: 15,
     paddingRight: 15,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    paddingBottom: 80
   },
   formContainer: {
     flexDirection: "row",

@@ -6,7 +6,7 @@ export default StyleSheet.create({
         paddingLeft: 15,
         paddingRight: 15,
         backgroundColor: '#fff',
-        marginBottom: 120
+        paddingBottom: 80
     },
     formContainer: {
         flexDirection: "row",
@@ -18,5 +18,18 @@ export default StyleSheet.create({
         flex: 1,
         fontSize: 15,
         marginRight: 5
+    },
+    page: {
+        flex: 1,
+        backgroundColor: "#F5FCFF"
+    },
+    mapContainer: {
+        flex: 1,
+        height: 300,
+        // width: 300,
+        backgroundColor: "tomato"
+    },
+    map: {
+        flex: 1
     }
 });

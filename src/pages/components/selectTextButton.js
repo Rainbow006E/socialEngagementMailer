@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         borderWidth: 0,
         textDecorationLine: 'none',
-        elevation: 0
+        elevation: 0,
+        padding: 8
     }
 });
 

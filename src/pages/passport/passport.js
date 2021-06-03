@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, View, StyleSheet } from "react-native";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MapboxGL from "@react-native-mapbox-gl/maps";
 import { lineString as makeLineString } from '@turf/helpers';
 
@@ -28,7 +29,7 @@ const Passport = (props) => {
 
     const getBoundingBox = (pointList) => {
         var bounds = {}, coords, point, latitude, longitude;
-      
+
         for (var i = 0; i < pointList.length; i++) {
             coords = pointList[i];
             longitude = coords[0];
@@ -51,15 +52,7 @@ const Passport = (props) => {
                     key={`${index}-PointAnnotation`}
                     id={`${index}-PointAnnotation`}
                     coordinate={point}>
-                    <View style={{
-                        height: 22,
-                        width: 22,
-                        backgroundColor: '#0011ff',
-                        borderRadius: 50,
-                        borderColor: '#ffffff',
-                        borderWidth: 3
-                    }}
-                    />
+                    <MaterialCommunityIcons style={styles.icon} name="map-marker" size={42} color="#31C283" />
                 </MapboxGL.PointAnnotation>
             ))
         );
@@ -100,14 +93,20 @@ const Passport = (props) => {
                             >
                             </MapboxGL.Camera>
 
-                            {renderAnnotations()}
-
                             {
                                 route && (
                                     <MapboxGL.ShapeSource id='shapeSource' shape={route}>
-                                        <MapboxGL.LineLayer id='lineLayer' style={{ lineWidth: 5, lineJoin: 'bevel', lineColor: '#ff0000' }} />
+                                        <MapboxGL.LineLayer
+                                            id='lineLayer'
+                                            style={{ lineWidth: 2, lineJoin: 'bevel', lineColor: '#ff0000' }}
+                                            belowLayerID={Platform.OS === 'android' ? 'mapbox-android-symbol-layer-1' : undefined}
+                                        />
                                     </MapboxGL.ShapeSource>
                                 )
+                            }
+
+                            {
+                                renderAnnotations()
                             }
                         </MapboxGL.MapView>
                     </View>

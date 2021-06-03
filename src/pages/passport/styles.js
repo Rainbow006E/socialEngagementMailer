@@ -26,10 +26,14 @@ export default StyleSheet.create({
     mapContainer: {
         flex: 1,
         height: 300,
-        // width: 300,
         backgroundColor: "tomato"
     },
     map: {
         flex: 1
+    },
+    icon: {
+        paddingBottom: 34,
+        flex: 1,
+        resizeMode: 'contain'
     }
 });

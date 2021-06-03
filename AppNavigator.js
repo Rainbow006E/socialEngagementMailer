@@ -11,118 +11,65 @@ import { TouchableOpacity, Text } from 'react-native';
 const Tab = createBottomTabNavigator();
 
 class AppNavigator extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return (
-            <Tab.Navigator
-                // tabBar={props => <MyTabBar {...props} />}
-                initialRouteName="Scan"
-                activeColor="#e91e63"
-                tabBarOptions={{
-                  showLabel: false,
-                  style: {
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    elevation: 0,
-                    backgroundColor: '#a7a7dc',
-                    borderRadius: 0,
-                    height: 60
-                  }
-                }}
-            >
-                <Tab.Screen
-                    name="Scan"
-                    component={Scan}
-                    options={{
-                        tabBarLabel: 'Scan',
-                        tabBarIcon: ({ color }) => (
-                            <MaterialCommunityIcons name="qrcode-scan" size={24} color="#000" />
-                        ),
-                        tabBarOptions: {
-                          showLabel: false
-                        }
-                    }}
-                />
-                <Tab.Screen
-                    name="Bins"
-                    component={Bins}
-                    options={{
-                        tabBarLabel: 'Bins',
-                        tabBarIcon: ({ color }) => (
-                            <MaterialCommunityIcons name="archive" size={26} />
-                        ),
-                    }}
-                />
-                <Tab.Screen
-                    name="Passport"
-                    component={Passport}
-                    options={{
-                        tabBarLabel: 'Passport',
-                        tabBarIcon: ({ color }) => (
-                            <MaterialCommunityIcons name="passport" size={26} />
-                        ),
-                    }}
-                />
-            </Tab.Navigator>
-        );
-    }
-}
-
-function MyTabBar({ state, descriptors, navigation }) {
+  render() {
     return (
-      <View style={{ flexDirection: 'row',backgroundColor:"#F4AF5F",height:50,borderRadius:50,justifyContent:"center",alignItems:"center" }}>
-        {state.routes.map((route, index) => {
-          const { options } = descriptors[route.key];
-          const label =
-            options.tabBarLabel !== undefined
-              ? options.tabBarLabel
-              : options.title !== undefined
-              ? options.title
-              : route.name;
-
-          const isFocused = state.index === index;
-
-          const onPress = () => {
-            const event = navigation.emit({
-              type: 'tabPress',
-              target: route.key,
-            });
-
-            if (!isFocused && !event.defaultPrevented) {
-              navigation.navigate(route.name);
+      <Tab.Navigator
+        initialRouteName="Scan"
+        activeColor="#e91e63"
+        tabBarOptions={{
+          showLabel: false,
+          style: {
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            elevation: 0,
+            backgroundColor: '#a7a7dc',
+            borderRadius: 0,
+            height: 60
+          }
+        }}
+      >
+        <Tab.Screen
+          name="Scan"
+          component={Scan}
+          options={{
+            tabBarLabel: 'Scan',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="qrcode-scan" size={24} color="#000" />
+            ),
+            tabBarOptions: {
+              showLabel: false
             }
-          };
-
-          const onLongPress = () => {
-            navigation.emit({
-              type: 'tabLongPress',
-              target: route.key,
-            });
-          };
-
-          return (
-            <TouchableOpacity
-              accessibilityRole="button"
-              accessibilityStates={isFocused ? ['selected'] : []}
-              accessibilityLabel={options.tabBarAccessibilityLabel}
-              testID={options.tabBarTestID}
-              onPress={onPress}
-              onLongPress={onLongPress}
-              style={{ flex: 1, alignItems:"center" }}
-            >
-              <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
-                {label}
-              </Text>
-            </TouchableOpacity>
-          );
-        })}
-      </View>
+          }}
+        />
+        <Tab.Screen
+          name="Bins"
+          component={Bins}
+          options={{
+            tabBarLabel: 'Bins',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="archive" size={26} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Passport"
+          component={Passport}
+          options={{
+            tabBarLabel: 'Passport',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="passport" size={26} />
+            ),
+          }}
+        />
+      </Tab.Navigator>
     );
+  }
 }
 
 export default AppNavigator;

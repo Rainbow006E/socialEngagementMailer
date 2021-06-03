@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Scan from './src/pages/scan/scan';
+import CodeScan from './src/pages/codeScan/codeScan';
 import Bins from './src/pages/bins/bins';
 import Passport from './src/pages/passport/passport';
 import { Icon, View } from 'native-base';
@@ -39,6 +40,19 @@ class AppNavigator extends Component {
           component={Scan}
           options={{
             tabBarLabel: 'Scan',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="qrcode-scan" size={24} color="#000" />
+            ),
+            tabBarOptions: {
+              showLabel: false
+            }
+          }}
+        />
+        <Tab.Screen
+          name="CodeScan"
+          component={CodeScan}
+          options={{
+            tabBarLabel: 'CodeScan',
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="qrcode-scan" size={24} color="#000" />
             ),

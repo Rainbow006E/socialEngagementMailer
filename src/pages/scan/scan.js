@@ -2,10 +2,9 @@ import React, { Component, useEffect, useState } from "react";
 import { Text, TextInput, View, ScrollView, Modal, Pressable } from 'react-native';
 import { Button } from "native-base";
 import QRCode from 'react-native-qrcode-svg';
-// import Barcode from "react-native-barcode-builder";
 import Barcode from 'react-native-barcode-svg';
 
-import SelectTextButton from '../components/selectTextButton';
+import SelectTextButton from '../../components/selectTextButton';
 import styles from "./styles";
 
 const Scan = () => {

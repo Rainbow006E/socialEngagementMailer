@@ -34,6 +34,5 @@ export default StyleSheet.create({
     icon: {
         paddingBottom: 34,
         flex: 1,
-        resizeMode: 'contain'
     }
 });
